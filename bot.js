@@ -6,6 +6,7 @@ var URL = 'https://cjp.lil1.me/api';
 
 client.on('ready', () => {
   console.log(`${client.user.tag}にログインしました`);
+  client.user.setActivity()
 });
 
 function translate(text) {
