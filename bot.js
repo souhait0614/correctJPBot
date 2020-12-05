@@ -22,10 +22,10 @@ function translate(text) {
     }, function (err, res, body) {
       if (err) {
         console.log(err);
-        client.user.setActivity('APIでエラーが発生しました');
+        client.user.setStatus('dnd');
         data(text);
       } else {
-        client.user.setActivity('正常動作中');
+        client.user.setStatus('online');
         data(body.data);
       }
     });
