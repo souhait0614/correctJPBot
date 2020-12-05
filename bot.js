@@ -20,7 +20,14 @@ function translate(text) {
       },
       json: true
     }, function (err, res, body) {
-      data(body.data);
+      if (err) {
+        console.log(err);
+        client.user.setActivity('APIでエラーが発生しました');
+        data(text);
+      } else {
+        client.user.setActivity('正常動作中');
+        data(body.data);
+      }
     });
   });
 }
