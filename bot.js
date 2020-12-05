@@ -9,13 +9,14 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
+  if (msg.author.bot || !msg.member.roles.cache.find(r => r.name === "怪レい者")) return;
   request.get({
     uri: URL,
     headers: {
       'Content-type': 'application/json'
     },
     qs: {
-      data: msg
+      data: msg.content
     },
     json: true
   }, function (err, req, data) {
@@ -23,4 +24,4 @@ client.on('message', msg => {
   });
 });
 
-client.login();
+client.login("Nzg0NzAwNTIzMzk1MTUzOTIw.X8tHTw.m5UTU997rzkfYqm184AGjdagoow");
