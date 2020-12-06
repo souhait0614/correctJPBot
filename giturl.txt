@@ -1,1 +1,0 @@
-https://git.heroku.com/correctjpbot.git
