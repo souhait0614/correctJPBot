@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 const fetch = require('node-fetch');
-var URL = 'https://correctjp.work/api/';
+var URL = 'https://cjp.vercel.app/api/';
 
 client.on('ready', () => {
   console.log(`${client.user.tag}にログインしました`);
