@@ -30,7 +30,8 @@ client.on('message', async msg => {
   if (msg.author.bot) return
   if (msg.attachments.size > 0) return
   for (const [, role] of (await msg.guild.roles.fetch()).cache) {
-    if (role.name === '怪レい日本语') {
+    if (role.name === '怪レい日本语' || msg.content.startsWith('cjp>')) {
+      msg.content = msg.content.replace(/cjp>|cjp> /g, "")
       for (const [id, ] of (await role.members)) {
         if (msg.author.id === id) {
 
