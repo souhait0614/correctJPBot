@@ -1,36 +1,29 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-const request = require('request');
-var URL = 'https://cjp.lil1.me/api';
+const fetch = require('node-fetch');
+var URL = 'https://correctjp.work/api/';
 
 client.on('ready', () => {
   console.log(`${client.user.tag}にログインしました`);
   client.user.setActivity()
 });
 
-function translate(text) {
-  return new Promise((data) => {
-    request.get({
-      uri: URL,
+async function translate(text) {
+  try {
+    const data = await fetch(URL, {
+      method: 'POST',
+      body: JSON.stringify({
+        data: text
+      }),
       headers: {
         'Content-type': 'application/json'
-      },
-      qs: {
-        data: text
-      },
-      json: true
-    }, function (err, res, body) {
-      if (err) {
-        console.log(err);
-        client.user.setStatus('dnd');
-        data(text);
-      } else {
-        client.user.setStatus('online');
-        data(body.data);
       }
-    });
-  });
+    })
+    return (await data.json()).data
+  } catch {
+    return text
+  }
 }
 
 client.on('message', async msg => {
