@@ -38,7 +38,7 @@ client.on('message', async msg => {
           const sendText = await translate(msg.content);
           if (!sendText || sendText === msg.content) return
 
-          const username = '(怪) ' + (msg.member.nickname || msg.author.username)
+          const username = await translate((msg.member.nickname || msg.author.username));
           const avatarURL = msg.author.avatarURL()
           const webhook = await (async () => {
             for (const [, webhook] of (await msg.channel.fetchWebhooks())) {
