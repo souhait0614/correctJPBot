@@ -36,7 +36,6 @@ client.on('message', async msg => {
         if (msg.author.id === id) {
 
           const sendText = await translate(msg.content);
-          if (!sendText || sendText === msg.content) return
 
           const username = await translate((msg.member.nickname || msg.author.username));
           const avatarURL = msg.author.avatarURL()
