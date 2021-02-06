@@ -38,7 +38,7 @@ client.on('message', async msg => {
           const sendText = await translate(msg.content);
           if (!sendText || sendText === msg.content) return
 
-          const username = (msg.member.nickname || msg.author.username) + ' (怪レい日本语)'
+          const username = '(怪) ' + (msg.member.nickname || msg.author.username)
           const avatarURL = msg.author.avatarURL()
           const webhook = await (async () => {
             for (const [, webhook] of (await msg.channel.fetchWebhooks())) {
@@ -54,6 +54,12 @@ client.on('message', async msg => {
           // Submarin
           if (msg.guild.id === '702430385916608592') {
             await client.channels.cache.get('747087748535681074')
+              .send(msg.content)
+          }
+
+          // 携帯bot墓場
+          if (msg.guild.id === '769902624291553341') {
+            await client.channels.cache.get('807516484548689930')
               .send(msg.content)
           }
 
