@@ -7,7 +7,7 @@
 ## Requirement
 * [Node.js](https://github.com/nodejs/node)
 * [Discord.js](https://github.com/discordjs/discord.js)
-* [request](https://github.com/request/request)
+* [node-fetch](https://github.com/node-fetch/node-fetch)
 
 ## Usage
 bot.jsがあるディレクトリで
